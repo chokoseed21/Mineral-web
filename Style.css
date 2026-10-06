@@ -1,0 +1,458 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none; /*es para que no se seleccione el texto*/
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("imgMin/fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom; /*aqui prioriza el bottom si tiene que cortar la imagen*/
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100vh;
+  --menu-color: #fdfdfd;
+  --verde-oscuro: #043822;
+  --verde-claro: #548c31;
+  --fondo-seccion: #f8faf163;
+  --letra-oscura: #01160e;
+}
+
+/*---------------------------HEADER---------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.main-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 70px;
+}
+
+/*--------------------LOGO------------------*/
+.main-navbar .logo {
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+
+  /* Oculto inicialmente */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease;
+}
+
+.logo img {
+  height: 10vh;
+}
+
+.logo .logo-text {
+  color: var(--verde-oscuro);
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.Min {
+  font-size: 1.5rem;
+  color: var();
+}
+/* Aparece cuando hacemos scroll */
+.main-navbar .logo.show {
+  opacity: 1;
+  visibility: visible;
+}
+/*-------------------------MENU------------------*/
+
+/*alinear a la derecha y agregar iconos*/
+.main-navbar {
+  background-color: var(--menu-color);
+  flex-grow: 1;
+  animation: aparecer both;
+  animation-timeline: scroll();
+}
+
+.main-navbar ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  font-weight: bold;
+}
+
+.main-navbar li {
+  list-style: none;
+}
+
+.main-navbar a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  position: relative;
+  padding: 6px 9px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(to right, #2e7d32, #f9d423);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/*es para que no se vea el boton del menu burger*/
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--verde-oscuro);
+}
+
+/*-------------ANIMACIONES DEL MENU---------------*/
+@keyframes aparecer {
+  0% {
+    background-color: transparent;
+    translate: 0 -20%;
+    scale: 0.8;
+  }
+
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+}
+/*-------------------------HOMEPAGE------------------*/
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Imagen de fondo */
+.home .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+}
+
+/* Contenedor del logo + textos */
+.homeMin {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
+
+  /* Para la animación */
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+.homeMin.hide {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+/* Logo */
+.homeMin-img {
+  width: 120px;
+  height: auto;
+}
+
+/* Contenedor de los textos del homepage*/
+.homeMin-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Minerasal */
+.homeMin-titulo {
+  font-size: 5rem;
+  color: var(--verde-claro);
+}
+
+h2 {
+  font-size: 3rem;
+  color: var(--verde-oscuro);
+}
+
+/* Slogan */
+.home-slogan {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(0) scale(1);
+  transform-origin: left center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border-left: 3px solid var(--verde-claro);
+  z-index: 2;
+
+  /* animaciones */
+  transition: transform 0.6s ease;
+}
+
+.home-slogan h3 {
+  transition:
+    transform 0.6s ease,
+    font-size 0.6s ease;
+}
+
+.home-slogan--text {
+  color: var(--letra-oscura);
+  font-size: 1.5rem;
+  margin: 0 0 0 15px;
+}
+
+.home-slogan--pro {
+  font-family: "Segoe script", cursive;
+  transform: rotate(-3deg);
+  text-decoration: underline;
+  text-decoration-color: var(--verde-claro);
+  font-size: 2.2rem;
+  margin: 0 0 0 15px;
+  line-height: 0.8; /*es para acercar los h3, estaban muy separados*/
+}
+
+.home-slogan.scrolled {
+  transform: translateY(-120px); /*hace que el slogan suba.*/
+}
+
+.home-slogan.scrolled h3 {
+  font-size: 3rem;
+}
+
+.home-slogan.expand {
+  transform: translateY(-100px) scale(1.4);
+}
+
+/*frase de pie de pagina*/
+.frase {
+  font-family: "Segoe script", cursive;
+  font-size: 1.2rem;
+  transform: rotate(-6deg);
+  line-height: 1.7; /*es para acercar los h3, estaban muy separados*/
+  position: absolute;
+  z-index: 2;
+  right: 2%;
+  bottom: 2%;
+}
+.frase-mejor {
+  text-decoration: underline;
+  text-decoration-color: var(--verde-claro);
+}
+/*-------------------------ABOUT US------------------*/
+.about {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 5%;
+  background-color: var(--fondo-seccion);
+}
+.acerca {
+  color: var(--verde-oscuro);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nosotros {
+  position: relative;
+  display: inline-block;
+  color: var(--verde-claro);
+}
+
+/*es para darle color al underline, porque directamente desde text-decoration no se puede*/
+.nosotros::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+
+  width: 100%;
+  height: 8px; /*cambia el grosor de la linea*/
+
+  background: linear-gradient(to right, #2e7d32, #f9d423);
+  border-radius: 3px;
+}
+
+.about-texto {
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 900px;
+  margin-top: 25px;
+  line-height: 1;
+  color: var(--verde-oscuro);
+}
+
+.about-contenedores {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.about-mision,
+.about-vision,
+.about-valores {
+  width: 30%;
+  max-width: 350px;
+  padding: 25px;
+
+  text-align: justify;
+  color: var(--verde-oscuro);
+
+  background-color: var(--menu-color);
+  border-radius: 20px;
+}
+/*-------------------------RESPONSIVE :D ------------------*/
+/*start phone*/
+@media (max-width: 768px) {
+  .main-navbar {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .main-navbar .nav-links {
+    display: none;
+  }
+  /* Logo */
+  .homeMin {
+    top: 15%; /* ← sube logo + nombre */
+  }
+  .homeMin-img {
+    width: 100px;
+    height: auto;
+  }
+
+  /* Contenedor de los textos del homepage*/
+  .homeMin-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Minerasal */
+  .homeMin-titulo {
+    font-size: 2.5rem;
+    color: var(--verde-claro);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--verde-oscuro);
+  }
+
+  /* Slogan */
+  .home-slogan {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+  }
+
+  .home-slogan--text {
+    color: var(--letra-oscura);
+    font-size: 1rem;
+    margin: 0 0 0 15px;
+  }
+
+  .home-slogan--pro {
+    font-size: 2rem;
+    line-height: 0.8; /*es para acercar los h3, estaban muy separados*/
+  }
+  .frase {
+    display: none;
+  }
+
+  /* ESTILOS DE MENU BURGER*/
+  .burger {
+    display: block;
+  }
+
+  .burger .material-symbols-outlined {
+    font-size: 32px;
+  }
+  .main-navbar .nav-links.active {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 60px;
+    left: 0;
+
+    width: 100%;
+    background-color: var(--menu-color);
+    padding: 15px 0;
+    gap: 5px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    padding: 12px;
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+
+    z-index: 900;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+} /*end phone*/

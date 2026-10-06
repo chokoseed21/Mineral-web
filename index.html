@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minerasal</title>
+    <link rel="icon" href="imgMin/icon.png" />
+    <!--icono en la pesta;a-->
+    <link rel="stylesheet" href="Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <!--esta es la libreria de ICONOS de google-->
+  </head>
+  <body>
+    <!------------------------------------MENU------------------------------------>
+    <header class="header">
+      <nav class="main-navbar">
+        <!--Logo y nombre-->
+        <div class="logo">
+          <img src="imgMin/icon.png" alt="Logo" />
+          <p class="logo-text">
+            <strong class="Min">Minerasal</strong> fertilizantes del Cesar
+          </p>
+        </div>
+        <!--Contenido del menu-->
+        <ul class="nav-links">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#about">Acerca de nosotros</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <!--el aria-label="abrir menu" es para accesibilidad, para que el lector de pantalla lea de qu[e es el icono. NO APARECE EN PANTALLA-->
+        <button class="burger" aria-label="Abrir menú">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="overlay"></div>
+    <!--es para oscurecer el fondo en phones-->
+    <!------------------------------------homepage------------------------------------>
+    <div class="home" id="home">
+      <div class="homeMin">
+        <img class="homeMin-img" src="imgMin/icon.png" alt="Logo" />
+        <div class="homeMin-text">
+          <h1 class="homeMin-titulo">Minerasal</h1>
+          <h2>fertilizantes del Cesar</h2>
+        </div>
+      </div>
+      <div class="home-slogan">
+        <h3 class="home-slogan--text">Soluciones para un campo</h3>
+        <h3 class="home-slogan--pro">productivo</h3>
+      </div>
+      <img class="bg-img" src="imgMin/homepage.jpeg" />
+      <div class="frase">
+        <h4>
+          Cultivos sanos <br />
+          Animales fuertes
+        </h4>
+        <h4 class="frase-mejor">Mejores animales</h4>
+      </div>
+    </div>
+    <!--END HOMEPAGE-->
+
+    <!------------------------------------About us------------------------------------>
+    <div class="about" id="about">
+      <h2 class="acerca">ACERCA DE</h2>
+      <h2 class="nosotros">NOSOTROS</h2>
+      <p class="about-texto">
+        <strong>Trabajamos</strong> para impulsar el desarrollo del campo
+        mediante la comercialización de productos agrícolas de calidad que
+        contribuyen a una agricultura más productiva, sostenible y competitiva
+      </p>
+      <div class="about-contenedores">
+        <div class="about-mision">
+          <h3 class="about-mision--titulo">
+            Nuestra <strong class="about-mision--negrita"> <br />Misión</strong>
+          </h3>
+          <p>
+            Impulsamos el futuro del campo con insumos y fertilizantes de
+            calidad, que contribuyen al desarrollo agrícola y al bienestar de
+            nuestra región.
+          </p>
+        </div>
+        <div class="about-vision">
+          <h3 class="about-vision--titulo">
+            Nuestra <strong class="about-vision--negrita"> <br />Visión</strong>
+          </h3>
+          <p>
+            Seremos aliados estratégicos del campo y líderes en el mercado
+            regional colombiano, ofreciendo soluciones agricolas de calidad que
+            impulsen el crecimiento sostenible, la competitividad y el
+            desarrollo de nuestra región.
+          </p>
+        </div>
+        <div class="about-valores">
+          <h3 class="about-valores--titulo">
+            Nuestros
+            <strong class="about-valores--negrita"><br />Valores</strong>
+          </h3>
+          <p>Cálidad, compromiso, servicio, responsabilidad y confianza.</p>
+        </div>
+      </div>
+    </div>
+    <!--END ABOUT-->
+
+    <script src="script.js"></script>
+    <!--enlace a mi archivo.js RECUERDA PONER src='nombreDelArchivo.js' gracias ;D-->
+  </body>
+</html>
