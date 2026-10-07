@@ -4,10 +4,24 @@
   padding: 0;
   user-select: none; /*es para que no se seleccione el texto*/
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   background-image: url("imgMin/fondo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -288,15 +302,16 @@ h2 {
   flex-direction: column;
   align-items: center;
   padding: 60px 5%;
-  background-color: var(--fondo-seccion);
 }
 .acerca {
   color: var(--verde-oscuro);
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
+  line-height: 0.2;
 }
 
 .nosotros {
+  font-size: 4.5rem;
   position: relative;
   display: inline-block;
   color: var(--verde-claro);
@@ -321,7 +336,7 @@ h2 {
   text-align: center;
   max-width: 900px;
   margin-top: 25px;
-  line-height: 1;
+  line-height: 1.2;
   color: var(--verde-oscuro);
 }
 
@@ -346,6 +361,58 @@ h2 {
 
   background-color: var(--menu-color);
   border-radius: 20px;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.397);
+}
+.about-mision--titulo-text,
+.about-vision--titulo-text,
+.about-valores--titulo-text {
+  border-left: 3px solid var(--verde-oscuro);
+  padding-inline: 5px;
+}
+
+.about-mision--titulo,
+.about-vision--titulo,
+.about-valores--titulo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  line-height: 0.8;
+}
+
+.about-mision--negrita,
+.about-vision--negrita,
+.about-valores--negrita {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.img-mision,
+.img-vision,
+.img-valores {
+  width: 80px;
+  height: auto;
+}
+.about-mision--relleno,
+.about-vision--relleno,
+.about-valores--relleno {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/*Animación en toda la pagina*/
+.reveal {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: scale(1);
 }
 /*-------------------------RESPONSIVE :D ------------------*/
 /*start phone*/

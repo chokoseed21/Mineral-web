@@ -6,6 +6,7 @@ const burger = document.querySelector(".burger");
 const navLinks = document.querySelector(".nav-links");
 const burgerIcon = burger.querySelector(".material-symbols-outlined");
 const overlay = document.querySelector(".overlay");
+const reveals = document.querySelectorAll(".reveal");
 
 //HOMEPAGE
 window.addEventListener("scroll", function () {
@@ -42,4 +43,24 @@ burger.addEventListener("click", function () {
     burgerIcon.textContent = "menu";
     burger.setAttribute("aria-label", "Abrir menú");
   }
+});
+
+// ANIMACION EN TODA LA PAGINA
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
+
+reveals.forEach((element) => {
+  observer.observe(element);
 });
