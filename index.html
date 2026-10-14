@@ -41,7 +41,7 @@
     <div class="overlay"></div>
     <!--es para oscurecer el fondo en phones-->
     <!------------------------------------homepage------------------------------------>
-    <div class="home" id="home">
+    <section class="home" id="home">
       <div class="homeMin">
         <img class="homeMin-img" src="imgMin/icon.png" alt="Logo" />
         <div class="homeMin-text">
@@ -61,11 +61,11 @@
         </h4>
         <h4 class="frase-mejor">Mejores animales</h4>
       </div>
-    </div>
+    </section>
     <!--END HOMEPAGE-->
 
     <!------------------------------------About us------------------------------------>
-    <div class="about reveal" id="about">
+    <section class="about reveal" id="about">
       <h2 class="acerca">ACERCA DE</h2>
       <h2 class="nosotros">NOSOTROS</h2>
       <p class="about-texto">
@@ -117,9 +117,117 @@
           </p>
         </div>
       </div>
-    </div>
+    </section>
     <!--END ABOUT-->
+    <!------------------------------------Catalogo------------------------------------>
+    <section class="catalogo reveal" id="productos">
+      <h2 class="catalogo-title">CATÁLOGO DE PRODUCTOS</h2>
+      <p class="catalogo-text">
+        Soluciones para cultivos, potreros y salud animal.
+      </p>
 
+      <div class="catalogo-grid">
+        <!--Cultivos-->
+        <article class="catalogo-card">
+          <img class="catalogo-img" src="imgMin/cultivos.png" alt="Cultivos" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/cultivos-icon.png"
+              alt="Cultivos icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Cultivos</h3>
+              <p>Café, plátano, yuca, maíz, arroz, frutales y más.</p>
+            </div>
+          </div>
+        </article>
+
+        <!--Fertilizantes-->
+        <div class="catalogo-card">
+          <img src="imgMin/fertilizantes.png" alt="Fertilizantes" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/fertilizantes-icon.png"
+              alt="Fertilizantes icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Fertilizantes</h3>
+              <p>
+                Para todos los cultivos: café, plátano, yuca, maíz, arroz,
+                frutales y más.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--Proteccion de cultivos-->
+        <div class="catalogo-card">
+          <img src="imgMin/proteccion.png" alt="Proteccion de cultivos" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/proteccion-icon.png"
+              alt="Protección de cultivos icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Protección de cultivos</h3>
+              <p>Herbicidas, insecticidas y fungicidas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!--Potreros-->
+        <div class="catalogo-card">
+          <img src="imgMin/potreros.png" alt="Potreros y pasto" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/potreros-icon.png"
+              alt="Potreros icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Potreros y pasto</h3>
+              <p>Insumos para establecimiento y mantenimiento de potreros.</p>
+            </div>
+          </div>
+        </div>
+
+        <!--Salud-->
+        <div class="catalogo-card">
+          <img src="imgMin/salud.png" alt="Salud animal" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/salud-icon.png"
+              alt="Salud animal icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Salud animal</h3>
+              <p>Medicamentos veterinarios, vitaminas y suplementos.</p>
+            </div>
+          </div>
+        </div>
+        <!--Semillas-->
+        <div class="catalogo-card">
+          <img src="imgMin/semillas.png" alt="Semillas" />
+          <div class="catalogo-info">
+            <img
+              src="imgMin/semillas-icon.png"
+              alt="Semillas icono"
+              class="catalogo-icon"
+            />
+            <div class="catalogo-descripcion">
+              <h3>Semillas</h3>
+              <p>Semilla de pasto, maiz y otros cultivos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END GRID-->
+    </section>
+    <!--END CATALOGO-->
     <script src="script.js"></script>
     <!--enlace a mi archivo.js RECUERDA PONER src='nombreDelArchivo.js' gracias ;D-->
   </body>

@@ -36,6 +36,7 @@ body {
   --verde-claro: #548c31;
   --fondo-seccion: #f8faf163;
   --letra-oscura: #01160e;
+  --decorado-caja: #ecd41f;
 }
 
 /*---------------------------HEADER---------------------------*/
@@ -94,6 +95,7 @@ body {
   flex-grow: 1;
   animation: aparecer both;
   animation-timeline: scroll();
+  animation-range: 0px 100px;
 }
 
 .main-navbar ul {
@@ -160,7 +162,7 @@ nav a:hover::after {
 .home {
   position: relative;
   width: 100%;
-  height: 600px;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -169,9 +171,8 @@ nav a:hover::after {
   position: absolute;
   top: 0;
   left: 0;
-
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 
   object-fit: cover;
   object-position: center;
@@ -298,6 +299,7 @@ h2 {
 .about {
   position: relative;
   width: 100%;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -305,13 +307,13 @@ h2 {
 }
 .acerca {
   color: var(--verde-oscuro);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 0.2;
 }
 
 .nosotros {
-  font-size: 4.5rem;
+  font-size: 2.8rem;
   position: relative;
   display: inline-block;
   color: var(--verde-claro);
@@ -332,9 +334,9 @@ h2 {
 }
 
 .about-texto {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
-  max-width: 900px;
+  max-width: 800px;
   margin-top: 25px;
   line-height: 1.2;
   color: var(--verde-oscuro);
@@ -346,7 +348,7 @@ h2 {
   justify-content: center;
   gap: 25px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .about-mision,
@@ -377,14 +379,14 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 0.8;
 }
 
 .about-mision--negrita,
 .about-vision--negrita,
 .about-valores--negrita {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
 }
 
@@ -398,7 +400,7 @@ h2 {
 .about-vision--relleno,
 .about-valores--relleno {
   margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 /*Animación en toda la pagina*/
@@ -414,9 +416,116 @@ h2 {
   opacity: 1;
   transform: scale(1);
 }
+
+/*-------------------------CATALOGO------------------*/
+.catalogo {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  background-color: var(--fondo-seccion);
+}
+.catalogo-title {
+  color: var(--verde-oscuro);
+  font-size: 2rem;
+  padding-top: 2%;
+}
+.catalogo-text {
+  color: var(--letra-oscura);
+  font-size: 1rem;
+}
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 1.5vw;
+  max-width: 90vw;
+  margin: 5vh auto;
+}
+
+.catalogo-card {
+  position: relative;
+  display: block;
+  height: 28vh;
+  overflow: hidden;
+  border-radius: 1.5vw;
+  text-decoration: none;
+  grid-column: span 2;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.397);
+}
+/* Centramos Salud animal */
+.catalogo-card:nth-child(5) {
+  grid-column: 3 / span 2;
+}
+
+/* Centramos Semillas */
+.catalogo-card:nth-child(6) {
+  grid-column: 5 / span 2;
+}
+.catalogo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.catalogo-card:hover img {
+  transform: scale(1.05);
+}
+
+.catalogo-info {
+  position: absolute;
+  bottom: 0.1vh;
+  width: 100%;
+  height: 45%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+
+  box-sizing: border-box;
+  padding: 1vh 1vw;
+  background: white;
+  color: var(--verde-oscuro);
+  border-radius: 1.5vw;
+  border-right: solid 10px var(--decorado-caja);
+  text-align: left;
+  padding: 5%;
+}
+.catalogo-card .catalogo-icon {
+  width: 5.5vw;
+  height: 5.5vw;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: solid 10px var(--menu-color);
+  /* Hace que sobresalga hacia arriba */
+  transform: translateY(-3vh);
+}
+
+.catalogo-descripcion {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+.catalogo-descripcion p {
+  margin-top: 0.5vh;
+  font-size: 0.8rem;
+}
+.catalogo-card > .catalogo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.catalogo-card:hover {
+  transform: scale(1.05);
+}
 /*-------------------------RESPONSIVE :D ------------------*/
 /*start phone*/
 @media (max-width: 768px) {
+  /*--------------------MENU BURGER-------------------*/
   .main-navbar {
     height: 60px;
     padding: 0 20px;
@@ -472,7 +581,7 @@ h2 {
     display: none;
   }
 
-  /* ESTILOS DE MENU BURGER*/
+  /* -------------------------ESTILOS DE MENU BURGER--------------*/
   .burger {
     display: block;
   }
@@ -521,5 +630,42 @@ h2 {
   .overlay.active {
     opacity: 1;
     visibility: visible;
+  }
+
+  /* -------------------------ABOUT US--------------*/
+  .about-contenedores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 25px;
+  }
+  .about-mision,
+  .about-vision,
+  .about-valores {
+    width: 90%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+  /* -------------------------CATALOGO--------------*/
+  .catalogo-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .catalogo-card,
+  .catalogo-card:nth-child(5),
+  .catalogo-card:nth-child(6) {
+    grid-column: auto;
+  }
+
+  .catalogo-card .catalogo-icon {
+    width: 20vw;
+    height: 20vw;
+    flex-shrink: 0;
+    object-fit: contain;
+    transform: translateY(-1vh);
   }
 } /*end phone*/
