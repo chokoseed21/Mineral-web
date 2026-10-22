@@ -125,3 +125,29 @@ document.querySelectorAll(".aliados-track").forEach((track) => {
 
   setInterval(moverCarrusel, 6000);
 });
+
+//para abrir las ventanas modales
+document.querySelectorAll(".catalogo-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const modalId = card.dataset.modal;
+    const modal = document.getElementById(modalId);
+
+    if (modal) {
+      modal.classList.add("active");
+    }
+  });
+});
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  const closeButton = modal.querySelector(".modal-close");
+
+  closeButton.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+});

@@ -39,6 +39,7 @@ body {
   --decorado-caja: #ecd41f;
   --fondo-caja: #f4f3f1d6;
   --naranja: #ff6404;
+  --fondo-claro: #d7fddfd6;
 }
 
 /*---------------------------HEADER---------------------------*/
@@ -427,7 +428,7 @@ h2 {
   width: 100%;
   min-height: 100vh;
   text-align: center;
-  padding: 9% 5% 5% 2%;
+  padding: 9% 5% 2% 5%;
   background-color: var(--fondo-seccion);
 }
 .catalogo-title {
@@ -505,7 +506,7 @@ h2 {
   border-radius: 50%;
   border: solid 10px var(--menu-color);
   /* Hace que sobresalga hacia arriba */
-  transform: translateY(-1.7vh);
+  transform: translateY(0vh);
 }
 
 .catalogo-descripcion {
@@ -530,6 +531,84 @@ h2 {
 .catalogo-card:hover {
   transform: scale(1.05);
 }
+.catalogo-card:hover .catalogo-icon {
+  transform: translateY(-3vh);
+}
+
+/* Fondo de la ventana modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal visible */
+.modal.active {
+  display: flex;
+}
+.modal-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.modal-description {
+  text-align: center;
+}
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5vw;
+  max-width: 90vw;
+  margin: 5vh auto;
+}
+.modal-producto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+}
+
+.modal-img {
+  width: 100%;
+  height: 20vh;
+  object-fit: contain;
+}
+
+.producto-description {
+  margin-top: 1vh;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Contenido */
+.modal-content {
+  position: relative;
+  background-color: white;
+  width: 80%;
+  max-width: 800px;
+  max-height: 85dvh;
+  overflow-y: auto;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+/* Botón cerrar */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
 /*-------------------------ALIADOS COMERCIALES ------------------*/
 .aliados {
   width: 100%;
@@ -545,7 +624,7 @@ h2 {
   display: table; /*hace que el elemento se ajuste al ancho de su contenido.*/
   margin: 0 auto; /*centra el título horizontalmente.*/
   color: var(--verde-oscuro);
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 3.5rem;
 }
@@ -571,8 +650,8 @@ h2 {
 /* LOGOS */
 .aliados-logo {
   width: 25%;
-  height: 100px;
-  padding: 0 1rem;
+  height: 70px;
+  padding: 0 2rem;
   box-sizing: border-box;
   object-fit: contain;
   flex-shrink: 0;
@@ -601,12 +680,13 @@ h2 {
   position: relative;
   display: table;
   margin: 0 auto;
+  font-size: 2.5rem;
   color: var(--verde-oscuro);
 }
 
 .contacto-description {
   color: var(--letra-oscura);
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 2%;
 }
 
@@ -615,18 +695,19 @@ h2 {
   flex-direction: row;
   justify-content: center;
   gap: 25px;
-  width: 100%;
-  margin-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
 }
 .contacto-box--tel,
 .contacto-box--correo,
 .contacto-box--ubicacion {
   display: flex;
   align-items: center;
-  gap: 15px;
-
+  gap: 2.5px;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.397);
   background-color: var(--fondo-caja);
-  min-width: 30%;
+  min-width: 31%;
   border-radius: 3vw;
   border-right: solid 10px var(--decorado-caja);
   text-align: left;
@@ -663,13 +744,13 @@ h2 {
   padding-inline: 5px;
 }
 .contacto-box--title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .contacto-info a {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: var(--verde-oscuro);
   text-decoration: none;
@@ -687,7 +768,7 @@ h2 {
   box-sizing: border-box;
   background-color: var(--verde-oscuro);
   color: var(--menu-color);
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   border-top: solid 5px var(--decorado-caja);
   margin-top: 10px;
@@ -695,6 +776,10 @@ h2 {
 /*-------------------------RESPONSIVE :D ------------------*/
 /*start phone*/
 @media (max-width: 768px) {
+  body {
+    background-image: none;
+    background-color: var(--fondo-claro);
+  }
   .main-navbar {
     height: 60px;
     padding: 0 20px;
@@ -837,7 +922,11 @@ h2 {
     object-fit: contain;
     transform: translateY(-1vh);
   }
-
+  .modal-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+  }
   /*--------------------------ALIAD0S--------------------*/
   .aliados-carrusel {
     width: 100%;
