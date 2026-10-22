@@ -64,3 +64,64 @@ const observer = new IntersectionObserver(
 reveals.forEach((element) => {
   observer.observe(element);
 });
+
+//PARA LA ANIMACION DE ALIADOS NECESITO DUPLICAR LOS LOGOS PARA QUE SE VEA FLUIDO
+
+document.querySelectorAll(".aliados-track").forEach((track) => {
+  const logos = Array.from(track.querySelectorAll(".aliados-logo"));
+  const cantidad = logos.length;
+  const visibles = window.innerWidth <= 768 ? 1 : 4;
+
+  const esSegundaFila = track.classList.contains("two");
+  let pausado = false; //
+
+  let posicion = esSegundaFila ? cantidad : 0;
+
+  // Duplicamos los logos
+  logos.forEach((logo) => {
+    const copia = logo.cloneNode(true);
+    copia.alt = "";
+    copia.setAttribute("aria-hidden", "true");
+    track.appendChild(copia);
+  });
+
+  const imagenes = track.querySelectorAll(".aliados-logo");
+
+  function actualizarPosicion(animar = true) {
+    imagenes.forEach((img) => {
+      img.style.transition = animar ? "transform 2s ease-in-out" : "none";
+
+      img.style.transform = `translateX(-${posicion * 100}%)`;
+    });
+  }
+
+  // Posición inicial
+  actualizarPosicion(false);
+
+  function moverCarrusel() {
+    if (esSegundaFila) {
+      posicion -= visibles;
+    } else {
+      posicion += visibles;
+    }
+
+    actualizarPosicion(true);
+
+    // Reiniciar al terminar el recorrido
+    if (esSegundaFila && posicion <= 0) {
+      setTimeout(() => {
+        posicion = cantidad;
+        actualizarPosicion(false);
+      }, 2050);
+    }
+
+    if (!esSegundaFila && posicion >= cantidad) {
+      setTimeout(() => {
+        posicion = 0;
+        actualizarPosicion(false);
+      }, 2050);
+    }
+  }
+
+  setInterval(moverCarrusel, 6000);
+});

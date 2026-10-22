@@ -37,6 +37,8 @@ body {
   --fondo-seccion: #f8faf163;
   --letra-oscura: #01160e;
   --decorado-caja: #ecd41f;
+  --fondo-caja: #f4f3f1d6;
+  --naranja: #ff6404;
 }
 
 /*---------------------------HEADER---------------------------*/
@@ -149,7 +151,7 @@ nav a:hover::after {
   0% {
     background-color: transparent;
     translate: 0 -20%;
-    scale: 0.8;
+    scale: 0.95;
   }
 
   100% {
@@ -303,7 +305,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 5%;
+  padding: 10% 5% 5% 2%;
 }
 .acerca {
   color: var(--verde-oscuro);
@@ -320,7 +322,9 @@ h2 {
 }
 
 /*es para darle color al underline, porque directamente desde text-decoration no se puede*/
-.nosotros::after {
+.nosotros::after,
+.ali::after,
+.contacto-title::after {
   content: "";
   position: absolute;
   left: 0;
@@ -423,6 +427,7 @@ h2 {
   width: 100%;
   min-height: 100vh;
   text-align: center;
+  padding: 9% 5% 5% 2%;
   background-color: var(--fondo-seccion);
 }
 .catalogo-title {
@@ -500,7 +505,7 @@ h2 {
   border-radius: 50%;
   border: solid 10px var(--menu-color);
   /* Hace que sobresalga hacia arriba */
-  transform: translateY(-3vh);
+  transform: translateY(-1.7vh);
 }
 
 .catalogo-descripcion {
@@ -508,9 +513,12 @@ h2 {
   min-width: 0;
   margin: 0;
 }
+.catalogo-descripcion h3 {
+  line-height: 0.8;
+}
 .catalogo-descripcion p {
   margin-top: 0.5vh;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .catalogo-card > .catalogo-img {
   width: 100%;
@@ -522,10 +530,171 @@ h2 {
 .catalogo-card:hover {
   transform: scale(1.05);
 }
+/*-------------------------ALIADOS COMERCIALES ------------------*/
+.aliados {
+  width: 100%;
+  height: auto;
+  background-color: var(--menu-color);
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+/* TÍTULO */
+.aliados-title {
+  position: relative; /*permite posicionar la línea con respecto al título.*/
+  display: table; /*hace que el elemento se ajuste al ancho de su contenido.*/
+  margin: 0 auto; /*centra el título horizontalmente.*/
+  color: var(--verde-oscuro);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* CONTENEDOR DE LAS DOS FILAS */
+.aliados-carrusel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* PROPIEDADES COMPARTIDAS DE LAS FILAS */
+.aliados-track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* LOGOS */
+.aliados-logo {
+  width: 25%;
+  height: 100px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 4s ease-in-out;
+}
+
+/* PRIMERA FILA */
+.aliados-track.one {
+  /* El movimiento lo controla JavaScript */
+}
+
+/* SEGUNDA FILA */
+.aliados-track.two {
+  /* El movimiento lo controla JavaScript */
+}
+
+/*---------------------------CONTACTO----------------------*/
+.contacto {
+  width: 100%;
+  height: auto;
+  padding: 5rem 0 9rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+.contacto-title {
+  position: relative;
+  display: table;
+  margin: 0 auto;
+  color: var(--verde-oscuro);
+}
+
+.contacto-description {
+  color: var(--letra-oscura);
+  font-size: 1.5rem;
+  padding: 2%;
+}
+
+.contacto-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+.contacto-box--tel,
+.contacto-box--correo,
+.contacto-box--ubicacion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background-color: var(--fondo-caja);
+  min-width: 30%;
+  border-radius: 3vw;
+  border-right: solid 10px var(--decorado-caja);
+  text-align: left;
+  padding: 1.5%;
+}
+
+.contact-icon {
+  background-color: var(--verde-oscuro);
+  color: #fdfdfd;
+  font-size: 50px !important;
+  padding: 10px;
+  border-radius: 50%;
+  border-right: solid 5px var(--decorado-caja);
+  flex-shrink: 0;
+}
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.contacto-telefonos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contacto-telefonos a {
+  margin: 0;
+}
+.tel-dos {
+  border-right: solid 2px var(--letra-oscura);
+  border-left: solid 2px var(--letra-oscura);
+  padding-inline: 5px;
+}
+.contacto-box--title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.contacto-info a {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contacto-info a:hover {
+  color: var(--naranja);
+  text-decoration: none;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  padding: 20px 5%;
+  box-sizing: border-box;
+  background-color: var(--verde-oscuro);
+  color: var(--menu-color);
+  font-size: 1.5rem;
+  text-align: center;
+  border-top: solid 5px var(--decorado-caja);
+  margin-top: 10px;
+}
 /*-------------------------RESPONSIVE :D ------------------*/
 /*start phone*/
 @media (max-width: 768px) {
-  /*--------------------MENU BURGER-------------------*/
   .main-navbar {
     height: 60px;
     padding: 0 20px;
@@ -667,5 +836,74 @@ h2 {
     flex-shrink: 0;
     object-fit: contain;
     transform: translateY(-1vh);
+  }
+
+  /*--------------------------ALIAD0S--------------------*/
+  .aliados-carrusel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .aliados-title {
+    padding-inline: 1rem;
+  }
+  .aliados-track.two {
+    display: none;
+  }
+
+  .aliados-logo {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  /*--------------------------CONTACTO-------------------*/
+  .contacto {
+    width: 100%;
+    padding: 65px 15px 15px 15px;
+    box-sizing: border-box;
+  }
+  .contacto-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 25px;
+  }
+  .contacto-box--tel,
+  .contacto-box--correo,
+  .contacto-box--ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 20px 15px;
+
+    border-radius: 15px;
+  }
+  .contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+  .contacto-box--title {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .contacto-info p,
+  .contacto-info a {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .footer {
+    font-size: 1rem;
   }
 } /*end phone*/
